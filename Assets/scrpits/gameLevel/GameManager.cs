@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Text altTxt;
 
-    private int a;
+    Timemanager timermanager;
 
-    private int b;
+    private void Awake()
+    {
+        timermanager = Object.FindObjectOfType<Timemanager>();
+    }
 
-    private int c;
 
     void sureskor()
     {
@@ -45,28 +47,21 @@ public class GameManager : MonoBehaviour
     {
         sureskor();
 
-        sayiLar();
+        üstTxt.text = "";
+        altTxt.text = "";
     }
 
 
     public void OyunaBasla()
     {
-        Debug.Log("basla");
+        üstTxt.text = "asdasd";
+
+        altTxt.text = "asdasd";
+
+        timermanager.SureyiBaslat();
     }
 
-    public void sayiLar()
-    {
-        a = Random.Range(0, 100);                                              //Deðiþicek     
+ 
 
-        b = Random.Range(0, 100);
-
-        c = Random.Range(0, 100);
-
-        üstTxt.text = "";
-
-        altTxt.text = "";
-
-
-    }
 
 }
