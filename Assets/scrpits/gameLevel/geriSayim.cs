@@ -41,13 +41,7 @@ public class geriSayim : MonoBehaviour
         geriSayimobj.GetComponent<RectTransform>().DOScale(0, 0.5f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(0.5f);
 
-        geriSayimtext.text = "0";
-        yield return new WaitForSeconds(0.5f);
-
-        geriSayimobj.GetComponent<RectTransform>().DOScale(1, 0.5f).SetEase(Ease.OutBack);
-        yield return new WaitForSeconds(1f);
-        geriSayimobj.GetComponent<RectTransform>().DOScale(0, 0.5f).SetEase(Ease.InBack);
-        yield return new WaitForSeconds(0.5f);
+        
 
         StopAllCoroutines();
 
