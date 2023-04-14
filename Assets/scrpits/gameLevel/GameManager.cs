@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Text altTxt;
 
+    [SerializeField] Transform Falseicon;
+
     Timemanager timermanager;
 
     dairemanager Dairemanager;
@@ -92,6 +94,9 @@ public class GameManager : MonoBehaviour
         }else if (oyunsayac>=20 && oyunsayac<25)
         {
             kacincioyun=5;
+        }else
+        {
+            kacincioyun = Random.Range(1, 6);
         }
 
         switch (kacincioyun)
@@ -120,7 +125,7 @@ public class GameManager : MonoBehaviour
 
     void Biricifonksiyon()
     {
-        int RastgeleDeger = Random.Range(0, 50);
+        int RastgeleDeger = Random.Range(1, 50);
 
         if (RastgeleDeger <= 25)
         {
@@ -284,6 +289,13 @@ public class GameManager : MonoBehaviour
         altTxt.text = ucuncusayi + ":" + dorduncusayi;
     }
 
+    void yanlissecim()
+    {
+        Falseicon.GetComponent<CanvasGroup>().DOFade(0, 0.1f);
+        Falseicon.GetComponent<CanvasGroup>().DOFade(1, 0.5f).SetEase(Ease.InBack);
+        return;
+    }
+
     public void ButonDegeriniBelirle(string Butonadi)
     {
         if (Butonadi == "ustButton")
@@ -304,7 +316,8 @@ public class GameManager : MonoBehaviour
             Kacincioyun();
         }else
         {
-            
+            yanlissecim();
+            return;
         }
     }
 
